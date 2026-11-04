@@ -1,0 +1,811 @@
+/*BACKGROUND STYLE*/
+body{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    background-color: #ffd1e8;
+    color: #333;
+}
+
+/*NAVIGATION BAR*/
+nav {
+    background:linear-gradient( to right, #ff69b4, #d63384);
+    padding: 15px 30px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+  
+nav a:hover {
+    color: #ffd1e8;
+}
+  
+/*HEADINGS*/
+h1 {
+    text-align: center;
+    color: #d63384;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #ff69b4;
+}
+
+/*SECTIONS*/
+section {
+    padding: 40px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/*GAME CONTAINERS */
+#gamesContainer.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#gamesContainer.list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#recommendedContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/*ERRORS*/
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/*HERO SLIDER*/
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    overflow: hidden;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+    display: block;       
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.hero-overlay h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.hero-overlay p {
+    margin: 5px 0 0 0;
+}
+
+.hero-slider:hover .hero-overlay {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+/*GAME CARDS*/
+.game-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fca4d0;
+    box-shadow: 0 4px 12px rgba(204, 46, 114, 0.08);
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: left;
+}
+
+.list .game-card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.list .game-card img {
+    width: 120px;
+    aspect-ratio: 3/4;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card h4 {
+    font-size: 16px;
+    margin: 8px 0 2px;
+}
+
+.game-card p {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0px;
+    color: #cc2e72;
+}
+
+.game-card button {
+    margin-top: 10px;
+}
+
+/*TOGGLE VIEW BUTTONS*/
+#toggleView{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#toggleView button{
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ffb6d5;
+    background: #ffd1e8;
+    cursor: pointer;
+}
+
+#toggleView button:first-child{
+    margin-right: 8px;
+}
+
+#toggleView button:hover{
+    background: #ffb6d5;
+}
+
+/*HOME PAGE HEADER*/
+#home h3 {
+    color: #ff69b4;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 25px 0 15px;
+}
+
+/*FILTERS SECTION*/
+#filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    background:#ffd1e8;
+    padding:14px;
+    border-radius:10px;
+}
+
+#filters label:first-of-type{
+    display: none;
+}
+
+/*SEARCH BAR*/
+#searchInput{
+    flex-basis:100%;
+    max-width:260px;
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ffb6d5;
+}
+
+#searchInput::placeHolder{
+    color: #888;
+}
+
+/*FILTER SELECT*/
+#filters select{
+    padding:6px 8px;
+    font-size:13px;
+    border-radius:6px;
+    border:1px solid #ffb6d5;
+}
+
+#filters label{
+    font-size:14px;
+}
+
+#filters label:last-of-type{
+    flex-basis:100%;
+}
+
+.price-range{
+    flex-basis:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.price-range input[type="range"]{
+    width:160px;
+}
+
+#filters p{
+    flex-basis:100%;
+    margin:0;
+    font-size:13px;
+    color:#cc2e72;
+}
+
+/*LIST VIEW FOR GAME CARDS*/
+#gamesContainer.list .game-card{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 16px;
+}
+
+#gamesContainer.list .game-card img{
+    width: 260px;               
+    height: 150px;               
+    aspect-ratio: auto;         
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+#gamesContainer.list .game-card h4{
+    font-size: 18px;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+}
+
+#gamesContainer.list .game-card p{
+    margin: 0 0 10px 0;
+    font-size: 15px;
+}
+
+#gamesContainer.list .game-card button{
+    margin-top: 6px;
+}
+
+#gamesContainer.list .game-card h4,
+#gamesContainer.list .game-card p,
+#gamesContainer.list .game-card button{
+    display:block;
+}
+
+/*GAME DETAILS PAGE DISPLAY*/
+.details-top {
+    display:flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.details-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-main-img {
+    width: 820px;
+    height: 350px;
+    object-fit: contain;
+    border: 1px solid #ffb6d5;
+    border-radius: 10px;
+    background: white;
+}
+
+.details-thumbs{
+    display:flex;
+    justify-content: space-between;
+    gap:6px;
+    margin-top:8px;
+    width: 100%;
+}
+
+.details-thumbs-img{
+    width: 23%;
+    height: 80px;
+    object-fit:cover;
+    border:1px solid #ddd;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.details-thumbs-img:hover{
+    transform: scale(1.05);
+    color: #dedada;
+}
+
+.details-right {
+    width: 40%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-shot-wrap {
+    position: relative;
+}
+
+.details-shot-img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ffb6d5;
+}
+
+.details-arrow-prev,
+.details-arrow-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#ff69b4;
+    border:none;
+    color:white;
+    font-size:18px;
+    padding:6px 10px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.details-arrow-prev{
+    left:-35px;
+}
+
+.details-arrow-next{
+    right:-35px;
+}
+
+.details-arrow-prev:hover,
+.details-arrow-next:hover{
+    background:#d63384;
+}
+
+/*GAME DETAILS INFO DISPLAY*/
+.details-info{
+    margin-top:20px;
+}
+
+.details-description{
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.details-rating-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.details-rating-num{
+    font-weight:bold;
+    font-size:18px;
+}
+
+.details-stars{
+    color:gold;
+}
+
+.details-specs{
+    margin-bottom:25px;
+}
+
+.spec-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid #eee;
+}
+
+.spec-label{
+    font-weight:bold;
+}
+
+.spec-value{
+    color:#555;
+}
+
+.details-reviews{
+    margin-top:10px;
+}
+
+.details-review-card{
+    background:#ffe6f2;
+    border:1px solid #ffb6d5;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:8px;
+}
+
+.details-actions{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+}
+
+.details-cart-button,
+.details-wishlist-button{
+    padding:10px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.details-cart-button, .details-wishlist-button {
+    background:#ff69b4;
+    color:white;
+}
+
+.details-wishlist-button:hover{
+    background:#d63384;
+}
+
+.details-cart-button:hover {
+    background:#d63384;
+}
+
+/*ABOUT PAGE*/
+#about {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.about-intro {
+    max-width: 1000px;
+    margin: 30px;
+}
+
+.about-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.about-card {
+    background: #ffd1e8;
+    border: 1px solid #ffb6d5;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(204, 46, 114, 0.08);
+}
+
+.about-card h3 {
+    color: #d63384;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.about-card p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.quote-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    border: 2px solid #ffd1e8;
+}
+.quote-card p {
+    font-size: 18px;
+    font-style: italic;
+    color: #cc2e72;
+}
+
+.contact-heading {
+    color: #d63384;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+#contactForm {
+    margin-top: 25px;
+    background: #ffd1e8;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ffb6d5;
+    max-width: 600px;
+}
+
+#contactForm label {
+    font-weight: bold;
+    color: #d63384;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ffb6d5;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#contactForm button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background: #d63384;
+}
+
+/*CART AND WISHLIST PAGES*/
+#cart,
+#wishlist {
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+#cart h2,
+#wishlist h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#cartContainer > div,
+#wishlistContainer > div {
+    background: #ffd1e8;
+    border: 1px solid #ffb6d5;
+    border-radius: 12px;
+    padding: 16px 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(204, 46, 114, 0.08);
+}
+
+#cartContainer p,
+#wishlistContainer p {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+#cartContainer > div p:first-child,
+#wishlistContainer > div p:first-child {
+   font-size: 19px;
+   font-weight: bold;
+   color: #d63384
+}
+
+#cartContainer button,
+#wishlistContainer button {
+    margin-top: 10px;
+    margin-right: 8px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    background: white;
+    color: #d63384;
+    border: 1px solid #ffb6d5;
+}
+
+#cartContainer button:hover,
+#wishlistContainer button:hover {
+    background: #ffb6d5;
+}
+
+/*calculate total/summary box in cart*/
+#cartContainer h3 {
+    font-size: 18px;
+    font-weight:  600;
+}
+
+#cartContainer h2 {
+   font-size: 24px;
+}
+
+#cartContainer > div:last-child {
+    background: white;
+    border: 2px solid #ffb6d5;
+}
+
+
+/*CHECKOUT PAGE*/
+#checkout {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+#checkout h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#checkoutForm {
+    background: #ffd1e8;
+    border: 1px solid #ffb6d5;
+    border-radius: 7px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(204, 46, 114, 0.08);
+}
+
+#checkoutForm h3 {
+    color: #d63384;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+#checkoutForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #ffb6d5;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#checkoutForm button {
+    width: 100%;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#checkoutForm button:hover {
+    background: #d63384;
+}
+
+#processing {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #d63384;
+    background: #ffd1e8;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ffb6d5;
+}
+
+/*RECEIPT PAGE*/
+#receipt {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#receipt h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#receiptContainer {
+    background: white;
+    border: 2px solid #ffb6d5;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(204, 46, 114, 0.08);
+    line-height: 1.7;
+}
+
+#receiptContainer p,
+#receiptContainer h3 {
+    margin: 8px 0;
+}
+
+#receiptContainer hr {
+    border: none;
+    border-top: 1px solid #ffd1e8;
+    margin: 15px 0;
+}
+
+#receipt button {
+    margin-top: 18px;
+    margin-right: 10px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #ff69b4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#receipt button:hover {
+    background: #d63384;
+}
+
+
+/*NEWSLETTER*/
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    background: #ffd1e8;
+    border: 1px solid #ffb6d5;
+    border-radius: 14px;
+}
+
+footer h3 {
+    color: #d63384;
+    margin-bottom: 12px;
+}
+
+#newsletterForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+#emailInput {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px 14px;
+    border: 1px solid #ffb6d5;
+    border-radius: 10px;
+    font-size: 14px;
+    background: white;
+}
+
+#emailInput:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.15);
+}
+
+#newsletterForm button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: #ff69b4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#newsletterForm button:hover {
+    background: #d63384;
+}

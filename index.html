@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>EMC Gaming</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+
+            <h1>EMC Gaming</h1>
+
+            <nav>
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="games">Games</a>
+                <a href="#" class="nav-link" data-page="about">About</a>
+                <a href="#" class="nav-link" data-page="cart">Cart (<span id="cartCount">0</span>)</a>
+                <a href="#" class="nav-link" data-page="wishlist">Wishlist (<span id="wishlistCount">0</span>)</a>
+            </nav>
+
+            <section id="home" class="page">  
+
+                <div id ="heroSlider" class="hero-slider">
+                    <div class="hero-image-wrapper">
+                        <img id="heroImage" src="" alt="Game Image"> 
+
+                    </div>
+
+                    <div class="hero-overlay">
+                        <h2 id="heroTitle"></h2>
+                        <p id="heroRating"></p>
+                    </div>
+                </div>
+
+                <h3>Recommended Games</h3>
+                <div id="recommendedContainer"></div>
+
+                <footer>
+                    <h3>Subscribe To Our Newsletter</h3>
+
+                    <form id="newsletterForm">
+                        <input type="email" id="emailInput" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                        <p id="emailError" class="error"></p>
+                    </form>
+                </footer>
+
+            </section>
+
+            <section id="games" class="page">
+                <h2>All Games</h2> 
+
+                <div id="filters">
+                    <label>Search:</label>
+                    <input type="text" id="searchInput" placeHolder="Search games by name...">
+
+                    <label>Filter by Category:</label>
+                    <select id="categoryFilter">
+                        <option value="all">All</option>
+                        <option value="Action-Adventure">Action-Adventure</option>
+                        <option value="Sandbox">Sandbox</option>
+                        <option value="RPG">RPG</option>
+                    </select>
+
+                    <label>Filter by Platform:</label>
+                    <select id="platformFilter">
+                        <option value="all">All Platforms</option>
+                        <option value="PC">PC</option>
+                        <option value="Console">Console</option>
+                        <option value="Mobile">Mobile</option>
+                    </select>
+
+                    <label>Filter by Price:</label>
+                    <select id="priceSort">
+                        <option value="none">Any</option>
+                        <option value="low-high">Low to High</option>
+                        <option value="high-low">High to Low</option>
+                    </select>
+
+                    <label>Sort by:</label>
+                    <select id="sortBy">
+                        <option value="none">None</option>
+                        <option value="name-az">Name A-Z</option>
+                        <option value="name-za">Name Z-A</option>
+                        <option value="rating-high">Rating High to Low</option>
+                        <option value="rating-low">Rating Low to High</option>
+                    </select>
+
+                    <label>Price Range: </label>
+                    <div class="price-range">
+                        <input type="range" id="minPrice" min="0" max="300" value="0">
+                        <input type="range" id="maxPrice" min="0" max="300" value="100">
+                    </div>
+
+                    <p>
+                        <span id="minPriceDisplay">0</span> - 
+                        <span id="maxPriceDisplay">300</span>
+                    </p>
+
+                </div>
+
+                <div id="toggleView">
+                    <button id="gridViewButton">Grid View</button>
+                    <button id="listViewButton">List View</button>
+                </div>
+
+                <div id="gamesContainer"></div>
+            </section>
+
+            <section id="details" class="page">
+                <div id="detailsContainer"></div>
+            </section>
+
+            <section id="about" class="page" style="display:none;">
+                <h2>About Our Store</h2>
+                
+                <div class="about-intro">
+                    <p>
+                        Welcome to EMC Gaming! Your space to discover cozy favorites, action-packed adventures, party classics, and everything in between.
+                        We bring together popular games across all paltforms in one simple shopping experience. 
+                    </p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="about-card">
+                        <h3>Curated for Players</h3>
+                        <p>From relaxing life sima to high-energy multiplayer, EMC Gaming is built to help players quickly find games they'll actually enjoy.</p>
+                    </div>
+            
+                    <div class="about-card quote-card">
+                        <p>“Gaming is more than entertainment — it's connection, creativity, and escape.”</p>
+                    </div>
+            
+                    <div class="about-card">
+                        <h3>Easy to Explore</h3>
+                        <p>Use search, sorting, filters, and price range tools to browse your fav games without digging through clutter.</p>
+                    </div>
+            
+                    <div class="about-card">
+                        <h3>Built for Simplicity</h3>
+                        <p>Wishlist features, cart updates, checkout flow, and receipt generation were all designed to create a smooth and realistic store experience.</p>
+                    </div>
+            
+                    <div class="about-card quote-card">
+                        <p>“A great game store should make discovering your next favorite game feel effortless.”</p>
+                    </div>
+            
+                    <div class="about-card">
+                        <h3>Player-Focused Design</h3>
+                        <p>EMC Gaming combines playful visuals with practical tools to create a store experience that feels both polished and approachable.</p>
+                    </div>
+                </div>
+            
+                <h3 class="contact-heading">Contact Us</h3>
+
+                <form id="contactForm">
+                    <label>Name:</label><br>
+                    <input type="text" id="contactName">
+                    <p class="error" id="nameError"></p>
+
+                    <label>Email:</label><br>
+                    <input type="text" id="contactEmail">
+                    <p class="error" id="contactEmailError"></p>
+
+                    <label>Message:</label><br>
+                    <textarea id="contactMessage" rows="4"></textarea>
+                    <p class="error" id="messageError"></p>
+
+                    <button type="submit">Send Message</button>
+
+                    <p id="contactSuccess" style="color: green;"></p>
+                </form>
+            
+            </section>
+
+            <section id="cart" class="page">
+                <h2>Your Cart</h2>
+                <div id="cartContainer"></div>
+            </section>
+
+            <section id="wishlist" class="page">
+                <h2>Wishlist</h2>
+                <div id="wishlistContainer"></div>
+            </section>
+
+            <section id="checkout" class="page">
+                <h2>Checkout</h2>
+
+                <form id="checkoutForm">
+                    <h3>Personal Information</h3>
+                    <input type="email" id="checkoutEmail" placeHolder="Email" required>
+                    
+                    <h3>Payment Information</h3>
+                    <input type="text" id="cardName" placeHolder="Name on Card" required>
+                    <input type="text" id="cardNumber" placeHolder="Card Number (16 digits)" maxlength="16" required>
+                    <input type="text" id="expiryDate" placeHolder="Expiry Date (MM/YY)" required>
+                    <input type="text" id="CVV" placeHolder="CVV" maxlength="3" required>
+
+                    <button type="submit">Complete Purchase</button>
+                </form>
+
+                <div id="processing" style="display:none;">
+                    <p>Processing Payment...</p>
+                </div>
+            </section>
+
+            <section id="receipt" class="page">
+                <h2>Order Receipt</h2>
+
+                <div id="receiptContainer"></div>
+
+                <button onclick="showPage('home')">Continue Shopping</button>
+                <button onclick="window.print()">Print Receipt</button>
+
+            </section>
+
+            <script src="script.js"></script>
+
+        </body>
+    </html>
